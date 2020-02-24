@@ -36,16 +36,28 @@ public class Product {
 		this.quantidade = quantidade;
 	}
 	
-	public double ValorTotalEmEstoque(double total) {
-		return total = quantidade*preco;
+	public double ValorTotalEmEstoque() {
+		return quantidade*preco;
 	}
 	
 	public void AddProduto(int quantidade) {
-		quantidade = getQuantidade() + quantidade;
+		this.quantidade += quantidade;
 	}
 	
 	public void RemoverProduto(int quantidade) {
-		quantidade = getQuantidade() - quantidade;
+		this.quantidade -= quantidade;
 	}
+
+	@Override
+	public String toString() {
+		return nome
+			+ ", $ "
+			+ String.format("%.2f", preco)
+			+ ", "
+			+ quantidade
+			+ " unidades, Total: $ "
+			+ String.format("%.2f", ValorTotalEmEstoque());
+	}
+	
 	
 }
